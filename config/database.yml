@@ -69,10 +69,12 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: helpDB
+  database: helpdb
   pool: 5
   username: help
   password: password
+  host: localhost
+  port: 5432
 
 
 # test:
