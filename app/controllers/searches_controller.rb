@@ -1,5 +1,4 @@
 require 'text'
-
 class SearchesController < ApplicationController
   include ActiveRecord::Sanitization
 
@@ -15,8 +14,9 @@ class SearchesController < ApplicationController
       if last_complete_query.nil? || !is_similar_query?(query, last_complete_query)
         # Save the query only if it's a new and more complete query
         user_ip = request.headers['X-Forwarded-For'] || request.remote_ip
-        Search.create(query: query, user_ip: user_ip)
-        
+        user_identifier = "user_#{Digest::MD5.hexdigest(user_ip)}"
+        Search.create(query: query, user_ip: user_identifier)
+
         # Remove existing similar queries with fewer words
         remove_similar_queries(query)
       end
@@ -25,7 +25,10 @@ class SearchesController < ApplicationController
     # Fetch recent searches based on creation timestamp
     @searches = Search.order(created_at: :desc).limit(20)
 
-    render json: @searches
+    # Prepare JSON response including user_ip
+    search_data = @searches.map { |search| { query: search.query, user_ip: search.user_ip } }
+
+    render json: search_data
   end
     
   private
@@ -50,7 +53,6 @@ class SearchesController < ApplicationController
     Search.where("LOWER(?) ILIKE CONCAT(LOWER(query), '%')", query).where.not(query: query).delete_all
   end
 end
-
 
 
 
