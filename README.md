@@ -1,24 +1,53 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+** Searchbox Application **
 
-Things you may want to cover:
+Welcome to the Searchbox application! This application utilizes Ruby on Rails for the backend (Ruby version 3.3.0, Rails version 7.0.8) and Vanilla JavaScript for the frontend.
 
-* Ruby version
+## Table of Contents
 
-* System dependencies
+- [Frontend Deployment](#frontend-deployment)
+- [Backend Deployment](#backend-deployment)
+- [Ruby Version](#ruby-version)
+- [System Dependencies](#system-dependencies)
+- [Configuration](#configuration)
+- [Database](#database)
+  - [Creation](#database-creation)
+  - [Initialization](#database-initialization)
+- [Deployment Instructions](#deployment-instructions)
 
-* Configuration
+## Frontend Deployment
 
-* Database creation
+The frontend of this application is deployed at [https://bwire2010.github.io/Searchbox-Frontend/](https://bwire2010.github.io/Searchbox-Frontend/). You can access and interact with the live application through this link.
 
-* Database initialization
+## Backend Deployment
 
-* How to run the test suite
+The backend of the application is deployed at [https://searchbox-005p.onrender.com/searches](https://searchbox-005p.onrender.com/searches). This is where the backend API endpoints are hosted.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Ruby Version
 
-* Deployment instructions
+This project is developed using Ruby version 3.3.0. Ensure that you have the correct Ruby version installed on your system.
 
-* ...
+## System Dependencies
+
+The system dependencies for this project are managed using Rails, version 7.0.8. Ensure that Rails is installed on your machine before proceeding.
+
+
+gem install rails -v 7.0.8
+
+## Follow these steps to get the application up and running:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Bwire2010/SearchBox
+   cd Searchbox
+   bundle install
+   rails db:create
+   rails db:migrate
+   rails server
+
+Your backend will be accessible at http://localhost:3000.
+
+Open the frontend application by visiting https://bwire2010.github.io/Searchbox-Frontend/ in your browser.
+Now you have the Searchbox application up and running locally. Feel free to explore and customize it according to your needs.
