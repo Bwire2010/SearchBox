@@ -54,8 +54,6 @@
 
 # lib/search_analytics.rb
 
-# lib/search_analytics.rb
-
 require 'set'
 
 class SearchAnalytics

@@ -47,7 +47,6 @@ gem install rails -v 7.0.8
    rails db:migrate
    rails server
 
-Your backend will be accessible at http://localhost:3000.
+Your backend will be accessible at http://127.0.0.1:3000/.
 
-Open the frontend application by visiting https://bwire2010.github.io/Searchbox-Frontend/ in your browser.
 Now you have the Searchbox application up and running locally. Feel free to explore and customize it according to your needs.
