@@ -48,26 +48,27 @@ gem install rails -v 7.0.8
    rails server
 
 frontend github: 
-# Usage Example
+
+## 6. Usage Example
+
 The search engine is designed to capture complete searches and filter out incomplete ones. Here's an example:
 
-User Searches (because it’s instant, it records it all):
+1. **User Searches (because it’s instant, it records it all):**
 
-## 1. (1st (random) user searches for)
+   - (1st (random) user searches for)
+     - What is
+     - What is a
+     - What is a good car
 
-What is
-What is a
-What is a good car
+   - (2nd (random) user searches for:)
+     - How is
+     - How is emil hajric
+     - How is emil hajric doing
 
-## 2. (2nd (random) user searches for:)
+2. **Your search engine only records:**
+   - What is a good car
+   - How is emil hajric doing
 
-How is
-How is emil hajric
-How is emil hajric doing
-Your search engine only records:
-
-What is a good car
-How is emil hajric doing
 And removes the rest because it was an incomplete search.
 
 
