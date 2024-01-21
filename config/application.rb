@@ -57,7 +57,7 @@
 #   end
 # end
 
-# config/application.rb
+
 
 # config/application.rb
 
@@ -86,7 +86,5 @@ module ArticlesSearch
   end
 end
 
-# config/application.rb
 
-# Add this line at the end of the file
 require Rails.root.join('lib', 'search_analytics.rb')
