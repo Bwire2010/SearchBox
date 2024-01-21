@@ -3,7 +3,6 @@ require 'text'
 class SearchesController < ApplicationController
   include ActiveRecord::Sanitization
 
-
   before_action :initialize_search_analytics
 
   def index
@@ -15,7 +14,8 @@ class SearchesController < ApplicationController
 
       if last_complete_query.nil? || !is_similar_query?(query, last_complete_query)
         # Save the query only if it's a new and more complete query
-        Search.create(query: query, user_ip: request.remote_ip)
+        user_ip = request.headers['X-Forwarded-For'] || request.remote_ip
+        Search.create(query: query, user_ip: user_ip)
         
         # Remove existing similar queries with fewer words
         remove_similar_queries(query)
@@ -35,7 +35,7 @@ class SearchesController < ApplicationController
   end
 
   def is_similar_query?(query, last_query)
-    # Set a similarity threshold based on your requirements
+    # Set a similarity threshold based on the requirements
     similarity_threshold = 0.8
 
     # Check if the queries are similar based on Jaro-Winkler similarity
