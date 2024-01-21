@@ -1,18 +1,6 @@
 class SearchesController < ApplicationController
   before_action :initialize_searches
 
-  # def index
-  #   query = params[:query]
-  #   if query.present?
-  #     user_ip = request.headers['X-Forwarded-For'] || request.remote_ip
-  #     Search.create(query: query, user_ip: user_ip) if complete_and_longest_search?(query)
-  #   end
-
-  #   @searches = Search.order(created_at: :desc).limit(10)
-  #   render json: @searches
-  # end
- # Add debugging statements
-
  def index
   query = params[:query]
   if query.present?
@@ -24,12 +12,9 @@ class SearchesController < ApplicationController
     end
   end
 
-  @searches = Search.order(created_at: :desc).limit(10)
+  @searches = Search.order(created_at: :desc).limit(20)
   render json: @searches
 end
-
-
-
 
 
   def create
@@ -47,7 +32,7 @@ end
   private
 
   def initialize_searches
-    @search_queries = Search.order(created_at: :desc).limit(10).pluck(:query)
+    @search_queries = Search.order(created_at: :desc).limit(20).pluck(:query)
   end
 
   def complete_and_longest_search?(query)
@@ -61,4 +46,8 @@ end
       false
     end
   end
+  
 end
+
+
+

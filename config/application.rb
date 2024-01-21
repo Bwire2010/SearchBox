@@ -20,3 +20,28 @@ module ArticlesSearch
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+# config/application.rb
+
+require_relative "boot"
+
+require "rails/all"
+
+Bundler.require(*Rails.groups)
+
+module ArticlesSearch
+  class Application < Rails::Application
+    # ...
+
+    # Add the following block to configure CORS
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
+
+    # ...
+  end
+end
+
