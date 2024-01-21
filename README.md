@@ -47,6 +47,30 @@ gem install rails -v 7.0.8
    rails db:migrate
    rails server
 
+frontend github: 
+# Usage Example
+The search engine is designed to capture complete searches and filter out incomplete ones. Here's an example:
+
+User Searches (because it’s instant, it records it all):
+
+## 1. (1st (random) user searches for)
+
+What is
+What is a
+What is a good car
+
+## 2. (2nd (random) user searches for:)
+
+How is
+How is emil hajric
+How is emil hajric doing
+Your search engine only records:
+
+What is a good car
+How is emil hajric doing
+And removes the rest because it was an incomplete search.
+
+
 Your backend will be accessible at http://127.0.0.1:3000/.
 
 Now you have the Searchbox application up and running locally. Feel free to explore and customize it according to your needs.
