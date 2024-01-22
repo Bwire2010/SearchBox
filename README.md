@@ -71,7 +71,41 @@ The search engine is designed to capture complete searches and filter out incomp
 
 And removes the rest because it was an incomplete search.
 
+## Tests
+
+This project includes a suite of RSpec tests to ensure the proper functionality of the `SearchesController`. To run the tests, execute the following command in your terminal:
+
+```bash
+bundle exec rspec
+
+The tests cover the following scenarios:
+
+1. **Creating a new search and removing similar queries:**
+   - *Description:* Tests whether a new search is created and similar queries are removed when the query is new and more complete.
+   - *Command:* `bundle exec rspec spec/controllers/searches_controller_spec.rb:9`
+
+2. **Not creating a new search for incomplete queries:**
+   - *Description:* Verifies that incomplete queries do not result in a new search being created.
+   - *Command:* `bundle exec rspec spec/controllers/searches_controller_spec.rb:21`
+
+3. **Fetching recent searches for the current user:**
+   - *Description:* Ensures that recent searches for the current user are fetched correctly.
+   - *Command:* `bundle exec rspec spec/controllers/searches_controller_spec.rb:31`
+
+4. **Not recording incomplete searches:**
+   - *Description:* Confirms that incomplete searches are not recorded.
+   - *Command:* `bundle exec rspec spec/controllers/searches_controller_spec.rb:41`
+
+Run the tests regularly to ensure continued functionality as the project evolves.
+
+## Contributing
+
+Provide guidelines for contributors if applicable.
+
 
 Your backend will be accessible at http://127.0.0.1:3000/.
 
 Now you have the Searchbox application up and running locally. Feel free to explore and customize it according to your needs.
+
+## License
+patrobas2012@gmail.com 
