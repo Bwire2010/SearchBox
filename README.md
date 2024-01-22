@@ -75,7 +75,7 @@ And removes the rest because it was an incomplete search.
 
 This project includes a suite of RSpec tests to ensure the proper functionality of the `SearchesController`. To run the tests, execute the following command in your terminal:
 
-```bash
+
 bundle exec rspec
 
 The tests cover the following scenarios:
